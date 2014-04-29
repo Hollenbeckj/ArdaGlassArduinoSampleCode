@@ -11,7 +11,7 @@ SoftwareSerial bluetooth(bluetoothTx, bluetoothRx);//tells the arduino to set RX
 
 void setup() 
 {
-  bluetooth.begin(115200); // set the baud rate of data stream
+  bluetooth.begin(115200);
   pinMode(grnd, OUTPUT);// set ground to be an output 
   pinMode(pwr, OUTPUT);// set power to be an output 
   digitalWrite(grnd, LOW); // establish ground 
@@ -22,7 +22,7 @@ void loop()
 {
   counter++;// increase counter every frame
 
-  if (Serial.available() > 0) // if serial data is available 
+  if (Serial.available() > 0)
     {
       incomingByte = Serial.read();// read the oldest byte in the serial buffer:
   
@@ -38,5 +38,5 @@ void loop()
       counter = 0;// set counter to 0
     }
 bluetooth.println(counter);// send the variable counter to the bluetooth shield and output it as data 
-delay(100); // delay the data by 100 milliseconds so it is more readable to the user
+delay(10);
 }
